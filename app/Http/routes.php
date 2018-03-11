@@ -12,5 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
+	
 });
+
+Route::get('/about', function () {
+   //return view('welcome');
+	return "Hi about page ";
+});
+
+Route::get('/contact', function () {
+   //return view('welcome');
+	return "Sergio A. Jimenez Hernandez";
+});
+
+Route::get('/post/{id}/{name}',function($id,$name)
+{
+	return "This is post number ".$id." ".$name;
+});
+
+
+
