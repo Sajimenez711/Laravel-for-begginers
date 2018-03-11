@@ -13,10 +13,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
-        return " Pretty good number ".$id;
+        return "Pretty good number";
     }
 
     /**
@@ -27,6 +27,8 @@ class PostController extends Controller
     public function create()
     {
         //
+
+        return "i am the creator";
     }
 
     /**
@@ -49,6 +51,7 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        return "this is the show method";
     }
 
     /**

@@ -42,4 +42,6 @@
 // }));
 
 
-Route::get('/post/{id}','PostController@index');
+// Route::get('/post/{id}','PostController@index');
+
+Route::resource('posts','PostController');
