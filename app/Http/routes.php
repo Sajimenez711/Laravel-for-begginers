@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-   return view('welcome');
+// Route::get('/', function () {
+
+//    return view('welcome');
 	
-});
+// });
 
 // Route::get('/about', function () {
 //    //return view('welcome');
@@ -47,6 +48,24 @@ Route::get('/', function () {
 // Route::resource('posts','PostController');
 // Route::get('/contact','PostController@contact');
 
-Route::get('/contact','PostController@contact');
+// Route::get('/contact','PostController@contact');
 
-Route::get('/post/{id}/{name}/{password}','PostController@showPost');
+// Route::get('/post/{id}/{name}/{password}','PostController@showPost');
+
+// Route::get('/insert',function()
+// {
+// 	DB::insert('insert into posts(title,content)values(?,?)', 	['PhHP with Laravel','Laravel is the best thing that has happened to PHP']);
+
+// });
+
+//Database Raw SWL Queries
+
+	Route::get('/read',function()
+{
+	$results=DB::select('select * from posts where id=?',[1]);
+	return var_dump($results);
+// 	foreach($results as $post){
+
+// 	return $post->title;
+// }
+});
