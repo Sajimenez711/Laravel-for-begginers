@@ -70,10 +70,16 @@
 // // }
 // });
 
-Route::get('/update',function()
-{
-	$updated = DB::update('update posts set title ="Updated title" where id=?',[1]);
+// Route::get('/update',function()
+// {
+// 	$updated = DB::update('update posts set title ="Updated title" where id=?',[1]);
 
-	return $updated;
+// 	return $updated;
+// });
+
+Route::get('/delete',function()
+{
+	$deleted = DB::delete('delete from posts where id=?',[1]);
+	return $deleted;
 });
 
