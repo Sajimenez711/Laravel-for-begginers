@@ -147,12 +147,17 @@ Reading Data ELOQUENT
 
 //Find and save(like update);
 
-Route::get('/basicinsert2',function()
+// Route::get('/basicinsert2',function()
+// {
+// 	$posts = Post::find(2);
+
+// 	$posts-> title="NEw Element title Insert 2";
+// 	$posts -> content = "Wow eloquent is really cool, look at this content 2";
+
+// 	$posts->save();
+// });
+
+Route::get('/create',function()
 {
-	$posts = Post::find(2);
-
-	$posts-> title="NEw Element title Insert 2";
-	$posts -> content = "Wow eloquent is really cool, look at this content 2";
-
-	$posts->save();
+	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
 });
