@@ -164,7 +164,22 @@ Reading Data ELOQUENT
 
 //Updated
 
-Route::get('/update',function()
+// Route::get('/update',function()
+// {
+// 	Post::where('id',2)->where('is_admin',0)->update(['title'=>'New PHP TITLE','content'=>'i love my instructor Ewin']);
+// });
+
+//Delete
+// Route::get('/delete',function()
+// {
+// 	$post=Post::find(1);
+// 	$post->delete();
+// });
+
+//Delete 2
+
+Route::get('/delete2',function()
 {
-	Post::where('id',2)->where('is_admin',0)->update(['title'=>'New PHP TITLE','content'=>'i love my instructor Ewin']);
+	Post::destroy([2,5]);//cuando conoces la llave
 });
+
