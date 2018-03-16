@@ -157,7 +157,14 @@ Reading Data ELOQUENT
 // 	$posts->save();
 // });
 
-Route::get('/create',function()
+// Route::get('/create',function()
+// {
+// 	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
+// });
+
+//Updated
+
+Route::get('/update',function()
 {
-	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
+	Post::where('id',2)->where('is_admin',0)->update(['title'=>'New PHP TITLE','content'=>'i love my instructor Ewin']);
 });
