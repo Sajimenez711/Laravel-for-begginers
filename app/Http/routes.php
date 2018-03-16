@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -210,5 +211,18 @@ Route::get('/softdelete', function()
 Route::get('forcedelete',function()
 {
 	Post::onlyTrashed()->where('is_admin',0)->forceDelete();
+});
+
+
+/*
+-----------------------------------------------------
+ELOQUENT RELATIONSHIPS
+----------------------------------------------------
+*/
+//One to one Relationship
+Route::get('/user/{id}/post',function($id)
+{
+	return User::find(1)->post->content;
+
 });
 
