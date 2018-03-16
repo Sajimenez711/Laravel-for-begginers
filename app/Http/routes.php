@@ -157,10 +157,10 @@ Reading Data ELOQUENT
 // 	$posts->save();
 // });
 
-// Route::get('/create',function()
-// {
-// 	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
-// });
+Route::get('/create',function()
+{
+	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
+});
 
 //Updated
 
@@ -178,8 +178,13 @@ Reading Data ELOQUENT
 
 //Delete 2
 
-Route::get('/delete2',function()
-{
-	Post::destroy([2,5]);//cuando conoces la llave
-});
+// Route::get('/delete2',function()
+// {
+// 	Post::destroy([2,5]);//cuando conoces la llave
+// });
 
+Route::get('/softdelete', function()
+{
+	Post::find(6)->delete();
+
+});
