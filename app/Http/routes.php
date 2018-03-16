@@ -189,14 +189,20 @@ Route::get('/softdelete', function()
 
 });
 
-Route::get('/readsoftdelete',function()
+// Route::get('/readsoftdelete',function()
+// {
+// 	// $posts=Post::find(6);
+// 	// return $posts;
+
+// 	// $posts=Post::withTrashed()->where('id',6)->get();
+// 	// return $posts;
+
+// //varios
+// 	$posts=Post::onlyTrashed()->where('is_admin',0)->get();
+// 	return $posts;
+// });
+
+Route::get('/restore',function()
 {
-	// $posts=Post::find(6);
-	// return $posts;
-
-	// $posts=Post::withTrashed()->where('id',6)->get();
-	// return $posts;
-
-	$posts=Post::onlyTrashed()->where('is_admin',0)->get();
-	return $posts;
+	Post::withTrashed()->where('is_admin',0)->restore();
 });
