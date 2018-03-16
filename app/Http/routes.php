@@ -117,13 +117,42 @@ Route::get('/insert',function()
 
 // });
 
-Route::get('/findmore',function()
+// Route::get('/findmore',function()
+// {
+// 	// $posts=Post::findOrFail(0);
+
+// 	// return $posts;
+
+// 	$posts=Post::where('users_count','<',50)->firstOrFail();
+
+// 	return $posts;
+// });
+
+
+/*
+-------------------------------------------
+Reading Data ELOQUENT
+-------------------------------------------
+*/
+
+// Route::get('/basicinsert',function()
+// {
+// 	$posts=new Post;
+
+// 	$posts ->title = 'New Eloquent title insert';
+// 	$posts ->content = "Wow, ELOQUENT is really cool, look at this content";
+
+// 	$posts->save();
+// });
+
+//Find and save(like update);
+
+Route::get('/basicinsert2',function()
 {
-	// $posts=Post::findOrFail(0);
+	$posts = Post::find(2);
 
-	// return $posts;
+	$posts-> title="NEw Element title Insert 2";
+	$posts -> content = "Wow eloquent is really cool, look at this content 2";
 
-	$posts=Post::where('users_count','<',50)->firstOrFail();
-
-	return $posts;
+	$posts->save();
 });
