@@ -135,15 +135,15 @@ Reading Data ELOQUENT
 -------------------------------------------
 */
 
-// Route::get('/basicinsert',function()
-// {
-// 	$posts=new Post;
+Route::get('/basicinsert',function()
+{
+	$posts=new Post;
 
-// 	$posts ->title = 'New Eloquent title insert';
-// 	$posts ->content = "Wow, ELOQUENT is really cool, look at this content";
+	$posts ->title = 'New Eloquent title insert';
+	$posts ->content = "Wow, ELOQUENT is really cool, look at this content";
 
-// 	$posts->save();
-// });
+	$posts->save();
+});
 
 //Find and save(like update);
 
@@ -157,10 +157,10 @@ Reading Data ELOQUENT
 // 	$posts->save();
 // });
 
-Route::get('/create',function()
-{
-	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
-});
+// Route::get('/create',function()
+// {
+// 	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
+// });
 
 //Updated
 
@@ -185,6 +185,18 @@ Route::get('/create',function()
 
 Route::get('/softdelete', function()
 {
-	Post::find(6)->delete();
+	Post::find(7)->delete();
 
+});
+
+Route::get('/readsoftdelete',function()
+{
+	// $posts=Post::find(6);
+	// return $posts;
+
+	// $posts=Post::withTrashed()->where('id',6)->get();
+	// return $posts;
+
+	$posts=Post::onlyTrashed()->where('is_admin',0)->get();
+	return $posts;
 });
