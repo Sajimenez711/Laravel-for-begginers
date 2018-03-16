@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -77,9 +77,36 @@
 // 	return $updated;
 // });
 
-Route::get('/delete',function()
-{
-	$deleted = DB::delete('delete from posts where id=?',[1]);
-	return $deleted;
-});
+// Route::get('/delete',function()
+// {
+// 	$deleted = DB::delete('delete from posts where id=?',[1]);
+// 	return $deleted;
+// });
 
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT
+|-*/
+
+// Route::get('/read',function()
+// {
+// 	$posts=Post::all();
+
+// 	foreach ($posts as $post ) {
+// 		# code...
+
+// 		return $post -> title;
+// 	}
+// });
+
+Route::get('/find',function()
+{
+	$posts=Post::find(1);
+
+	// foreach ($posts as $post ) {
+	// 	# code...
+	 	return $posts -> title;
+	// }
+
+
+});
