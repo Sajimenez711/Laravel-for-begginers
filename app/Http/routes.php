@@ -52,11 +52,11 @@ use App\Post;
 
 // Route::get('/post/{id}/{name}/{password}','PostController@showPost');
 
-// Route::get('/insert',function()
-// {
-// 	DB::insert('insert into posts(title,content)values(?,?)', 	['PhHP with Laravel','Laravel is the best thing that has happened to PHP']);
+Route::get('/insert',function()
+{
+	DB::insert('insert into posts(title,content) values(?,?)', 	['Laravel is awsome with Edwin','Laravel is the best thing that has happened to PHP,PERIOD']);
 
-// });
+});
 
 //Database Raw SWL Queries
 
@@ -99,14 +99,20 @@ use App\Post;
 // 	}
 // });
 
-Route::get('/find',function()
+// Route::get('/find',function()
+// {
+// 	$posts=Post::find(1);
+
+// 	// foreach ($posts as $post ) {
+// 	// 	# code...
+// 	 	return $posts -> title;
+// 	// }
+//});
+
+
+Route::get('/findwhere',function()
 {
-	$posts=Post::find(1);
-
-	// foreach ($posts as $post ) {
-	// 	# code...
-	 	return $posts -> title;
-	// }
-
+	$posts=Post::where('id',2)->orderBy('id','desc')->take(1)->get();
+	return $posts;
 
 });
