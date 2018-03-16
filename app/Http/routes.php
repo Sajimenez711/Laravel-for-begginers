@@ -157,10 +157,10 @@ Route::get('/basicinsert',function()
 // 	$posts->save();
 // });
 
-// Route::get('/create',function()
-// {
-// 	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
-// });
+Route::get('/create',function()
+{
+	Post::create(['title'=>'the create method','content'=>'Wow, im learning alot with EDwin Diaz']);
+});
 
 //Updated
 
@@ -170,11 +170,11 @@ Route::get('/basicinsert',function()
 // });
 
 //Delete
-// Route::get('/delete',function()
-// {
-// 	$post=Post::find(1);
-// 	$post->delete();
-// });
+Route::get('/delete',function()
+{
+	$post=Post::find(9);
+	$post->delete();
+});
 
 //Delete 2
 
@@ -202,7 +202,13 @@ Route::get('/softdelete', function()
 // 	return $posts;
 // });
 
-Route::get('/restore',function()
+// Route::get('/restore',function()
+// {
+// 	Post::withTrashed()->where('is_admin',0)->restore();
+// });
+
+Route::get('forcedelete',function()
 {
-	Post::withTrashed()->where('is_admin',0)->restore();
+	Post::onlyTrashed()->where('is_admin',0)->forceDelete();
 });
+
