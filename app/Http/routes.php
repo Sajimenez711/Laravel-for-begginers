@@ -246,25 +246,33 @@ Route::get('/posts',function()
 
 //Pivot table with Many to many relationship
 
-Route::get('/user/{id}/role', function($id)
+// Route::get('/user/{id}/role', function($id)
 
-{
-	$user=User::find($id)->roles()->orderBy('id','desc')->get();//->roles
+// {
+// 	$user=User::find($id)->roles()->orderBy('id','desc')->get();//->roles
 
-	return $user;
-	// foreach ($user->roles as $role) {
-	// 	return $role->name;
-	// }
-});
+// 	return $user;
+// 	// foreach ($user->roles as $role) {
+// 	// 	return $role->name;
+// 	// }
+// });
 
 
 //Accesing the intermediate table /pivot
 
-Route::get('user/pivot',function()
-{
-	$user=User::find(1);
-	foreach ($user->roles as $role) {
+// Route::get('user/pivot',function()
+// {
+// 	$user=User::find(1);
+// 	foreach ($user->roles as $role) {
 
-		return $role->pivot->created_at;
-	}
+// 		return $role->pivot->created_at;
+// 	}
+// });
+
+//Has to many through relation
+
+Route:get('/user/country',function()
+{
+
 });
+
