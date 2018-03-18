@@ -243,3 +243,6 @@ Route::get('/posts',function()
 	
 
 });
+
+//Pivot table with Many to many relationship
+
