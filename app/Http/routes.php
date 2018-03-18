@@ -256,3 +256,15 @@ Route::get('/user/{id}/role', function($id)
 	// 	return $role->name;
 	// }
 });
+
+
+//Accesing the intermediate table /pivot
+
+Route::get('user/pivot',function()
+{
+	$user=User::find(1);
+	foreach ($user->roles as $role) {
+
+		return $role->pivot->created_at;
+	}
+});
