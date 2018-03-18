@@ -2,6 +2,7 @@
 use App\Post;
 use App\User;
 use App\Country;
+use App\Photo;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -294,12 +295,18 @@ foreach ($user->photos as $photo) {
 }
 });
 
-Route::get('post/{id}/photos',function($id)
+// Route::get('post/{id}/photos',function($id)
 
+// {
+// 	$post=Post::find($id);
+
+// foreach ($post->photos as $photo) {
+// 	echo $photo->path."<br>";
+// }
+// });
+
+Route::get('photo/{id}/post',function($id)
 {
-	$post=Post::find($id);
-
-foreach ($post->photos as $photo) {
-	echo $photo->path."<br>";
-}
+	$photo = Photo::findOrFail($id);
+	return $photo->imageable;
 });
