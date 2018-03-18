@@ -220,9 +220,13 @@ ELOQUENT RELATIONSHIPS
 ----------------------------------------------------
 */
 //One to one Relationship
-Route::get('/user/{id}/post',function($id)
+// Route::get('/user/{id}/post',function($id)
+// {
+// 	return User::find(1)->post->content;
+
+// });
+//Inverse Relationship
+Route::get('/post/{id}/user', function($id)
 {
-	return User::find(1)->post->content;
-
+	return Post::find($id)->user->name;
 });
-
