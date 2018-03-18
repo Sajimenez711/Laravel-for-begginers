@@ -3,6 +3,7 @@ use App\Post;
 use App\User;
 use App\Country;
 use App\Photo;
+use App\Tag;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -313,11 +314,20 @@ foreach ($user->photos as $photo) {
 
 //Polymorphic many to many
 
-Route::get('/post/tag',function(){
-	$post=Post::find(1);
+// Route::get('/post/tag',function(){
+// 	$post=Post::find(1);
 
-	foreach ($post->tags as $tag) {
-		echo $tag->name;
+// 	foreach ($post->tags as $tag) {
+// 		echo $tag->name;
+// 	}
+
+// });
+
+Route::get('tag/post',function()
+{
+	$tag=Tag::find(2);
+	
+		foreach ($tag->posts as $post ) {
+		echo $post->title;
 	}
-
-});
+ });
