@@ -1,6 +1,7 @@
 <?php
 use App\Post;
 use App\User;
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -271,8 +272,13 @@ Route::get('/posts',function()
 
 //Has to many through relation
 
-Route:get('/user/country',function()
+Route::get('/user/country',function()
 {
+	$country = Country::find(4);
+
+		foreach ($country->posts as $post) {
+			return $post->title;
+		}
 
 });
 
