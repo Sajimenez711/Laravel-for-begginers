@@ -272,13 +272,34 @@ Route::get('/posts',function()
 
 //Has to many through relation
 
-Route::get('/user/country',function()
-{
-	$country = Country::find(4);
+// Route::get('/user/country',function()
+// {
+// 	$country = Country::find(4);
 
-		foreach ($country->posts as $post) {
-			return $post->title;
-		}
+// 		foreach ($country->posts as $post) {
+// 			return $post->title;
+// 		}
 
+// });
+
+
+//Polymorphic relation 
+
+Route::get('user/photos',function()
+
+{$user=User::find(1);
+
+foreach ($user->photos as $photo) {
+	return $photo->path;
+}
 });
 
+Route::get('post/{id}/photos',function($id)
+
+{
+	$post=Post::find($id);
+
+foreach ($post->photos as $photo) {
+	echo $photo->path."<br>";
+}
+});
